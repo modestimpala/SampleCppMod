@@ -39,11 +39,13 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC UE4SS )
 
-# Link libvotv OPTIONAL
-#target_link_libraries(${PROJECT_NAME} 
-#    PRIVATE 
-#        libvotv
-#)
+# First check if the libvotv target exists
+if(TARGET libvotv)
+    target_link_libraries(${PROJECT_NAME} 
+        PRIVATE 
+            libvotv
+    )
+endif()
 
 
 
