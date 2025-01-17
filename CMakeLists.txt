@@ -51,9 +51,8 @@ endif()
 
 
 # Copy the main DLL
-file(TO_NATIVE_PATH "${MOD_OUTPUT_PATH}/main.dll" MOD_DLL_PATH)
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy 
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:${PROJECT_NAME}>
-        "${MOD_DLL_PATH}"
+        "${MOD_OUTPUT_PATH}/main.dll"
 )
